@@ -1,4 +1,4 @@
-v<Admintemplate file="Common/Head"/>
+<Admintemplate file="Common/Head"/>
 <body class="J_scroll_fixed">
 <div class="wrap">
     <div class="h_a">说明</div>
@@ -130,6 +130,30 @@ v<Admintemplate file="Common/Head"/>
 
             })(jQuery);
         </script>
+    </section>
+
+    <section>
+        <h3>导出指定区域json文件 <small>可以用于修改jqweui city-picker文件</small></h3>
+        <form action="{:U('Area/Index/export')}" method="post">
+            <select name="export_province" id="">
+                <option value="0">全国</option>
+                <get sql="SELECT * FROM cms_area_province " page="$page" num="100">
+                    <volist name="data" id="vo">
+                        <option value="{$vo.id}">{$vo.areaname}</option>
+                    </volist>
+                </get>
+            </select>
+            <select name="export_type" id="">
+                <option value="4">全部等级</option>
+                <option value="2">市级</option>
+                <option value="3">区级</option>
+                <option value="4">镇/街道级</option>
+            </select>
+            <button class="btn btn-primary" href="javascript:;">导出</button>
+        </form>
+        <div style="margin-top: 20px;">
+            <img src="https://dn-coding-net-production-pp.qbox.me/f05535ef-44c9-45ce-8391-7ed174ec98b4.png" alt="">
+        </div>
     </section>
 
 </div>
